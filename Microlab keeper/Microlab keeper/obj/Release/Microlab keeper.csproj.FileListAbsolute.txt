@@ -1,0 +1,9 @@
+D:\VisualStudio2017\Projects\Microlab keeper\Microlab keeper\bin\Release\Microlab keeper.exe.config
+D:\VisualStudio2017\Projects\Microlab keeper\Microlab keeper\bin\Release\Microlab keeper.exe
+D:\VisualStudio2017\Projects\Microlab keeper\Microlab keeper\bin\Release\Microlab keeper.pdb
+D:\VisualStudio2017\Projects\Microlab keeper\Microlab keeper\obj\Release\Microlab_keeper.Form1.resources
+D:\VisualStudio2017\Projects\Microlab keeper\Microlab keeper\obj\Release\Microlab_keeper.Properties.Resources.resources
+D:\VisualStudio2017\Projects\Microlab keeper\Microlab keeper\obj\Release\Microlab keeper.csproj.GenerateResource.Cache
+D:\VisualStudio2017\Projects\Microlab keeper\Microlab keeper\obj\Release\Microlab keeper.exe
+D:\VisualStudio2017\Projects\Microlab keeper\Microlab keeper\obj\Release\Microlab keeper.pdb
+D:\VisualStudio2017\Projects\Microlab keeper\Microlab keeper\obj\Release\Microlab keeper.csprojResolveAssemblyReference.cache

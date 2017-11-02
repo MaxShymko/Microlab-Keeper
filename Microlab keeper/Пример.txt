@@ -1,0 +1,52 @@
+* Таймер, максимальное значение - 7F, минимальное - 1
+BA	0100	start: mov DX,FFF9h
+F9	0101
+FF	0102
+EC	0103	IN AL,DX
+4A	0104	dec DX
+EE	0105	out DX,AL
+B4	0106	mov AH,80h
+80	0107
+22	0108	and AH,AL
+E0	0109
+80	010A	cmp AH,80h
+FC	010B
+80	010C
+75	010D	jne start
+F1	010E	--
+80	010F	and AL,7F
+E0	0110
+7F	0111
+B9	0112	timer_loop: mov cx,FFFFh
+FF	0113
+FF	0114
+B3	0115	delay_loop1: mov BL,70h
+70	0116
+90	0117	delay_loop2: nop
+4B	0118	dec BX
+75	0119	jnz delay_loop2
+FC	011A	--
+E2	011B	loop delay_loop1
+F8	011C	--
+48	011D	dec AX
+EE	011E	OUT DX,AL
+8A	011F	mov AH,AL
+E0	0120
+42	0121	inc DX
+EC	0122	IN AL,DX
+4A	0123	dec DX
+24	0124	and AL,80h
+80	0125
+3C	0126	cmp AL,80h
+80	0127
+75	0128	jne start
+D6	0129	--
+8A	012A	mov AL,AH
+C4	012B
+3C	012C	cmp AL,00
+00	012D	
+75	012E	jne timer_loop
+E2	012F	--
+EB	0130	jmp,start
+CE	0131	--
+
