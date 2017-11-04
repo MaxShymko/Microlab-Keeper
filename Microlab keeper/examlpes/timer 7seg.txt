@@ -1,0 +1,57 @@
+* Настройка чтения клавиш
+BA	012A	start: mov DX,FFE7h
+E7	012B
+FF	012C
+B0	012D	mov AL,40h
+40	012E
+EE	012F	out DX,AL
+
+* Считывание ид клавиши в AH
+B2	0130	mov DL,E8
+E8	0131
+EC	0132	in AL,DX
+8A	0133	mov AH,AL
+E0	0134
+
+* В BL храним число от 0 до F
+8A	0135	mov BL,AL
+D8	0136
+
+* Считываем переключатели, проверяем включен ли младший
+B2	0137	mov DL,F9
+F9	0138
+EC	0139	IN AL,DX
+80	013A	and AL,01h
+E0	013B
+01	013C
+74	013D	jz start
+EB	013E	diff
+
+* Цикл таймера		
+8A	013F	timer_loop: mov AH,BL
+E3	0140
+
+E8	0141	call FUN_int2ascii
+D9	0142	diff
+FF	0143	diff
+
+* Вывод данных на дисплей
+B2	0144	mov DL,E7
+E7	0145
+B0	0146	mov AL,90h
+80	0147
+EE	0148	out DX,AL
+B2	0149	mov DL,E8h
+E8	014A
+8A	014B	mov AL,AH
+C4	014C
+EE	014D	out DX,AL
+
+E8	014E	call FUN_Delay
+AF	014F	diff
+FF	0150	diff
+FE	0151	dec BL
+CB	0152
+75	0153	jnz timer_loop
+EA	0154	diff
+

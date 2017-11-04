@@ -1,0 +1,46 @@
+* FUN_Delay // Задержка ~ 1сек
+89	0100	mov 0200h,CX
+0E	0101
+00	0102
+02	0103
+89	0104	mov 0202h,BX
+1E	0105
+02	0106
+02	0107
+B9	0108	mov cx,FFFFh
+FF	0109
+FF	010A
+B3	010B	delay_loop1: mov BL,70h
+70	010C
+90	010D	delay_loop2: nop
+FE	010E	dec BL
+CB	010F
+75	0110	jnz delay_loop2
+FB	0111	diff
+E2	0112	loop delay_loop1
+F7	0113	diff
+8B	0114	mov CX,0200h
+0E	0115
+00	0116
+02	0117
+8A	0118	mov BL,0202h
+1E	0119
+02	011A
+02	011B
+C3	011C	ret
+
+
+* FUN_int2ascii // Перевод цифры в ascii
+80	011D	cmp AH,0Ah
+FC	011E
+0A	011F
+72	0120	jb digits //Åñëè AH < 0Ah
+04	0121	diff
+80	0122	add AH,37h
+C4	0123
+37	0124
+C3	0125	ret
+80	0126	digits: add AH,30h
+C4	0127
+30	0128
+C3	0129	ret
