@@ -7,3 +7,12 @@ D:\VisualStudio2017\Projects\Microlab keeper\Microlab keeper\obj\Release\Microla
 D:\VisualStudio2017\Projects\Microlab keeper\Microlab keeper\obj\Release\Microlab keeper.exe
 D:\VisualStudio2017\Projects\Microlab keeper\Microlab keeper\obj\Release\Microlab keeper.pdb
 D:\VisualStudio2017\Projects\Microlab keeper\Microlab keeper\obj\Release\Microlab keeper.csprojResolveAssemblyReference.cache
+D:\GitHub\Microlab-Keeper\Microlab keeper\Microlab keeper\bin\Release\Microlab keeper.exe.config
+D:\GitHub\Microlab-Keeper\Microlab keeper\Microlab keeper\bin\Release\Microlab keeper.exe
+D:\GitHub\Microlab-Keeper\Microlab keeper\Microlab keeper\bin\Release\Microlab keeper.pdb
+D:\GitHub\Microlab-Keeper\Microlab keeper\Microlab keeper\obj\Release\Microlab keeper.csprojResolveAssemblyReference.cache
+D:\GitHub\Microlab-Keeper\Microlab keeper\Microlab keeper\obj\Release\Microlab_keeper.Form1.resources
+D:\GitHub\Microlab-Keeper\Microlab keeper\Microlab keeper\obj\Release\Microlab_keeper.Properties.Resources.resources
+D:\GitHub\Microlab-Keeper\Microlab keeper\Microlab keeper\obj\Release\Microlab keeper.csproj.GenerateResource.Cache
+D:\GitHub\Microlab-Keeper\Microlab keeper\Microlab keeper\obj\Release\Microlab keeper.exe
+D:\GitHub\Microlab-Keeper\Microlab keeper\Microlab keeper\obj\Release\Microlab keeper.pdb

@@ -13,7 +13,7 @@
 		</li>
 	</ul>
 	<br>
-	<a href="https://github.com/ProlificStark/Microlab-Ceeper/raw/master/Microlab%20keeper/Microlab%20keeper.exe">Скачать microlab keeper</a>
+	<a href="https://github.com/ShimaMax/Microlab-Keeper/raw/master/Microlab%20keeper/Microlab%20keeper/bin/Release/Microlab%20keeper.exe">Скачать microlab keeper</a>
 	<br>
 	<a href="https://github.com/ProlificStark/Microlab-Ceeper/tree/master/Microlab%20keeper/examlpes">Примеры файлов с кодом</a>
 </p>

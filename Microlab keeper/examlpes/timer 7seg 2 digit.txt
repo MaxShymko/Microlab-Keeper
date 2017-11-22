@@ -1,0 +1,139 @@
+* initialize flag, 01h - wait for High digit, 00h - wait for Low digit, start timer
+BB	0127	program_start: mov BX,0001h
+01	0128
+00	0129
+
+* keyboard config
+BA	012A	read_key: mov DX,FFE7h
+E7	012B
+FF	012C
+B0	012D	mov AL,40h
+40	012E
+EE	012F	out DX,AL
+
+* read key code, save in AH
+B2	0130	mov DL,E8
+E8	0131
+EC	0132	in AL,DX
+8A	0133	mov AH,AL
+E0	0134
+
+* read switch
+B2	0135	mov DL,F9
+F9	0136
+EC	0137	IN AL,DX
+
+* if BL=01h, then check is sw 0 active, if yes, then save High digit in the steck
+80	0138	cmp BL,01h
+FB	0139
+01	013A
+75	013B	jne check_low_digit
+1B	013C	diff
+80	013D	and AL,01h
+E0	013E
+01	013F
+74	0140	jz read_key
+E8	0141	diff
+8A	0142	mov CH,AH
+EC	0143
+
+B1	0144	mov CL,04h
+04	0145
+D2	0146	shl CH,CL
+E5	0147
+B2	0148	mov DL,E7h
+E7	0149
+B0	014A	mov AL,90h
+90	014B
+EE	014C	out DX,AL
+B2	014D	mov DL,E8h
+E8	014E
+8A	014F	mov AL,AH
+C4	0150
+E8	0151	call FUN_int2ascii
+C9	0152	diff
+FF	0153	diff
+EE	0154	out DX,AL
+
+4B	0155	dec BX
+EB	0156	jmp read_key
+D2	0157	diff
+
+* if sw 0 isn't active, then save Low digit and start timer loop, else read key 	
+80	0158	check_low_digit: and AL,01h
+E0	0159
+01	015A
+75	015B	jnz read_key
+CD	015C	diff
+8A	015D	mov CL,AH
+CC	015E
+02	015F	add CL,CH
+CD	0160
+B5	0161	mov CH,00h
+00	0162
+
+* show digits on the display
+B2	0163	timer_loop: mov DL,E7h
+E7	0164
+B0	0165	mov AL,90h
+90	0166
+EE	0167	out DX,AL
+B2	0168	mov DL,E8h
+E8	0169
+
+B0	016A	mov AL,F0h
+F0	016B
+22	016C	and AL,CL
+C1	016D
+
+D0	016E	shr AL,4
+E8	016F
+D0	0170
+E8	0171
+D0	0172
+E8	0173
+D0	0174
+E8	0175
+
+E8	0176	call FUN_int2ascii
+A4	0177	diff
+FF	0178	diff
+EE	0179	out DX,AL
+B0	017A	mov AL,0Fh
+0F  017B
+22	017C	and AL,CL
+C1	017D
+E8	017E	call FUN_int2ascii
+9C	017F	diff
+FF	0180	diff
+EE	0181	out DX,AL
+
+E8	0182	call FUN_Delay
+7B	0183	diff
+FF	0184	diff
+
+B2	0185	mov DL,F9
+F9	0186
+EC	0187	IN AL,DX
+80	0188	and AL,80h
+E0	0189
+80	018A
+75	018B	jnz timer_end
+02	018C	diff
+
+E2	018D	loop timer_loop
+D4	018E	diff
+
+B2	018F	timer_end: mov DL,E7h
+E7	0190
+B0	0191	mov AL,90h
+90	0192
+EE	0193	out DX,AL
+B2	0194	mov DL,E8h
+E8	0195
+B0	0196	mov AL,20h
+20  0197
+EE	0198	out DX,AL
+EE	0199	out DX,AL
+EB	019A	jmp program_start
+8B	019B	diff
